@@ -4,4 +4,7 @@ from django.template import loader
 # Create your views here.
 def index(request):
     template = loader.get_template('index.html')
-    return HttpResponse(template.render(request))
+    context = {
+        'translated': False,
+    }
+    return HttpResponse(template.render(context, request))
