@@ -1,1 +1,21 @@
-Hello World!
+<!DOCTYPE html>
+<head>
+  <title>Simple Translator</title>
+</head>
+<body>
+<h3>Simple Python Translator</h3>
+{% if translated %}
+<div>
+  <h2>Übersetzung erfolgreich:</h2>
+  <p>{{translation}}</p>
+</div>
+{% else %}
+<div>
+  <h2>Deutsch:</h2>
+  <form action="post">
+    <input type="text">
+    <input type="submit">
+  </form>
+</div>
+{% endif %}
+</body>
