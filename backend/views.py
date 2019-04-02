@@ -1,5 +1,8 @@
 from django.http import HttpResponse
 from django.template import loader
+from google.cloud import translate
+
+client = translate.Client(target_language='de')
 
 # Create your views here.
 def index(request):
