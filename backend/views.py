@@ -14,6 +14,6 @@ def index(request):
     }
     if form.get('input'):
         # ToDo: Translate-
-        context['translation'] = form.get('input')
+        context['translation'] = client.translate(form.get('input'))['translatedText']
         context['translated'] = True
     return HttpResponse(template.render(context, request))
