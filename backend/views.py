@@ -10,10 +10,14 @@ def index(request):
     form = request.POST
     context = {
         'translated': False,
-        'translation': 'Test-Übersetzung',
+        'translation': '',
+        'source_lang': 'de',
+        'orig': '',
     }
     if form.get('input'):
-        # ToDo: Translate-
-        context['translation'] = client.translate(form.get('input'))['translatedText']
+        t = client.translate(form.get('input'))
+        context['translation'] = t['translatedText']
         context['translated'] = True
+        context['source_lang'] = t['detectedSourceLanguage']
+        context['orig'] = t['input']
     return HttpResponse(template.render(context, request))

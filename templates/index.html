@@ -5,16 +5,19 @@
 <body>
 <header>Simple Python Translator</header>
 <div>
-  <h2>Eingabe:</h2>
+  <h2>Zu übersetzender Text:</h2>
   <form method="post">{% csrf_token %}
-    <input type="text" name="input" placeholder="Geben sie hier ihren Text ein">
+    <textarea name="input" rows="10" cols="50" placeholder="Geben sie hier ihren Text ein"></textarea><br>
     <input type="submit" value="Übersetzen">
   </form>
 </div>
 {% if translated %}
 <div>
-  <h2>Übersetzung erfolgreich:</h2>
-  <p><input type="text" name="input" value="{{translation}}"></p>
+  <h2>Übersetzung:</h2>
+  <textarea readonly rows="10" cols="50">{{translation}}</textarea><br>
+  <p><b>Erkannte Sprache: {{source_lang}}</b></p>
+  <p><b>Original:</b></p>
+  <p>{{orig}}</p>
 </div>
 {% endif %}
 <br>
