@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <head>
   <title> Simple Translator</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
 <header>Simple Python Translator</header>
 <div>
   <h2>Zu übersetzender Text:</h2>
   <form method="post">{% csrf_token %}
-    <textarea name="input" rows="10" cols="50" placeholder="Geben sie hier ihren Text ein"></textarea><br>
-    <input type="submit" value="Übersetzen">
+    <div class="form-group">
+        <textarea class="form-control" name="input" rows="10" cols="20" placeholder="Geben sie hier ihren Text ein"></textarea><br>
+        <button type="submit" class="btn btn-primary">Übersetzen</button>
+    </div>
   </form>
 </div>
 {% if translated %}
 <div>
   <h2>Übersetzung:</h2>
-  <textarea readonly rows="10" cols="50">{{translation}}</textarea><br>
-  <p><b>Erkannte Sprache: {{source_lang}}</b></p>
-  <p><b>Original:</b></p>
-  <p>{{orig}}</p>
+  <form>
+    <textarea class="form-control" readonly rows="10" cols="50">{{translation}}</textarea><br>
+    <p><b>Erkannte Sprache: {{source_lang}}</b></p>
+    <p><b>Original:</b></p>
+    <p>{{orig}}</p>
+  </form>
 </div>
 {% endif %}
 <br>
@@ -38,6 +43,12 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
+form {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
 header {
   background-color:Orange;
   padding: 30px;
