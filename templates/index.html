@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <head>
-  <title>Simple Translator</title>
+  <title> Simple Translator</title>
 </head>
 <body>
-<h3>Simple Python Translator</h3>
-{% if translated %}
-<div>
-  <h2>Übersetzung erfolgreich:</h2>
-  <p>{{translation}}</p>
-</div>
-{% endif %}
+<header>Simple Python Translator</header>
 <div>
   <h2>Eingabe:</h2>
   <form method="post">{% csrf_token %}
-    <input type="text" name="input">
-    <input type="submit">
+    <input type="text" name="input" placeholder="Geben sie hier ihren Text ein">
+    <input type="submit" value="Übersetzen">
   </form>
 </div>
+{% if translated %}
+<div>
+  <h2>Übersetzung erfolgreich:</h2>
+  <p><input type="text" name="input" value={{translation}}></p>
+</div>
+{% endif %}
+<br>
+<br>
+<br>
+<br>
+<div>
+<footer>
+  <p>Copyright by Marvin Gaube und Fehmi Pakir</p>
+</footer>
+</div>
 </body>
+<style>
+    * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+header {
+  background-color:Orange;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+footer {
+  background-color:Orange;
+  padding: 10px;
+  text-align: bottom left;
+  color: white;
+}
+</style>    
